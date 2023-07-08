@@ -22,7 +22,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "ibm": ['var(--font-ibm)'],
-        "strat": ['var( --theme-fontStratos)'],
+        "strat": ['var(--font-stratos)'],
       },
     },
   },

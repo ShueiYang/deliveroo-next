@@ -26,7 +26,7 @@ const MainContent = ({datas}: RambuteauRawData) => {
   
 
   return (
-    <div className="container flex flex-col md:flex-row bg-slate-100">
+    <div className="container flex flex-col md:flex-row bg-slate-100 pt-8">
       <MenuLists 
         datas={datas}
         addCart={addCart}

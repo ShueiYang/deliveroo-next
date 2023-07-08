@@ -28,6 +28,31 @@
   }
 }
 
+@layer utilities {
+  .cart-container {
+    display: flex;
+    flex-direction: column; 
+    top: 176px;
+    height: fit-content;
+    max-height: calc(100vh - 176px);
+    min-height: 325px;
+    background-color: white;
+    padding: 0.75rem;
+  }
+  .empty-container {   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    top: 176px;
+    height: 200px;
+    background-color: white;
+    padding: 0.75rem;
+  }
+  .cmd-button {
+    @apply bg-teal-400 font-semibold text-[#fff] rounded-md px-4 py-3
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -71,7 +96,7 @@ a:hover {
 nav {
   border-bottom: 1px #e5e7eb  solid;
 }
-nav a, button {
+nav a {
   border: 1px #e5e7eb solid;
   padding: 8px 16px;
 }

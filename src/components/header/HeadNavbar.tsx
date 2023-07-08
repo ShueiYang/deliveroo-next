@@ -18,7 +18,7 @@ const HeadNavbar = () => {
             <span>Inscription ou connexion</span> 
         </a>
 
-        <button className="flex items-center">
+        <button className="flex items-center border-[1px] border-[#e5e7eb]">
           <i className="icon-menu-bars mr-2"></i>
             Menu
         </button>
