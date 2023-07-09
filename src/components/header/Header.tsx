@@ -8,10 +8,9 @@ const Header = ({datas}: RambuteauRawData ) => {
   
     
   return (
-    <div className="container">
+    <div className="container pt-[72px]">
       <HeadNavbar />
-      <HeroSection datas={datas} />
-      <MenuNavbar  layoutDatas={datas.layoutNavigation}/>
+      <HeroSection datas={datas} />   
     </div>
   )
 }
