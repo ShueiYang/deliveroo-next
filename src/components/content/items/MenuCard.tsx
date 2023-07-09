@@ -37,7 +37,7 @@ const MenuCard = ({ categoryId, name, items, addCart }: MenuCardProps) => {
               >
                 <div className="mr-3">
                   <h4>{item.name}</h4>
-                  <p className="text-sm my-2">{item.description}</p>
+                  <p className="menu-desc text-sm my-2">{item.description}</p>
                   <p>{item.price.formatted}</p>
                 </div>
                 <div className="max-w-[25%] flex flex-none items-center">

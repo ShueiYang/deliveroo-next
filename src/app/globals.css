@@ -11,6 +11,18 @@
    border-top: 1px #e5e7eb  solid;
    border-bottom: 1px #e5e7eb  solid;
   }
+  .menu-desc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .cart-name {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
   .btn-0 {
       position: absolute;
       background-color: white;
@@ -21,7 +33,7 @@
       display: none;
   }
   .cart button {
-      padding: 4px 8px;
+    @apply flex m-1
   }
   .cart span {
       font-size: 14px;
@@ -34,7 +46,7 @@
     flex-direction: column; 
     top: 176px;
     height: fit-content;
-    max-height: calc(100vh - 176px);
+    max-height: calc(100vh - 5rem);
     min-height: 325px;
     background-color: white;
     padding: 0.75rem;

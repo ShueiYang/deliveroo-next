@@ -37,7 +37,8 @@ const HeroSection = ({datas}: RambuteauRawData) => {
                 return(
                   <span 
                     key={span.key} 
-                    className={`text-[${span.color?.hex}] font-medium`}
+                    className="font-medium"
+                    style={{color: `${span.color?.hex}`}}
                   >
                     &nbsp;{span.text}
                   </span>
@@ -48,11 +49,14 @@ const HeroSection = ({datas}: RambuteauRawData) => {
 
           <div className="flex flex-wrap gap-0.5 items-center pt-2">
             {
-              headerSpan2.map(span => {
+              headerSpan2.map(span => {             
                 return(
                   <Fragment key={span.key}>
                      { span.icon && <i className={`icon-${span.icon.name}`}></i> }                  
-                    <div key={span.key} className={`text-[${span.color?.hex}] font-medium whitespace-nowrap`}>      
+                    <div key={span.key} 
+                      className="font-medium whitespace-nowrap"
+                      style={{color: `${span.color?.hex}`}}
+                    >      
                       { span.typeName === "UISpanSpacer" && ""}
                       { span.typeName === "UISpanText" && span.text}
                     </div>
@@ -64,12 +68,14 @@ const HeroSection = ({datas}: RambuteauRawData) => {
           { headerInfo.map(info => {
             return (
               <div key={info.key} className="pt-4 flex items-center">
-                <i className={`icon-${info.image.name} text-2xl text-[${info.image.color.hex}]`}></i>
+                <i className={`icon-${info.image.name} text-2xl`} 
+                  style={{color: `${info.image.color.hex}`}}></i>
+                
                 <div className="flex flex-col mx-4">
                   { info.lines.map(line => {
                     return (
                       <ul key={line.key}>
-                        <li className={`text-[${line.spans[0].color.hex}]`}>
+                        <li style={{color: `${line.spans[0].color.hex}`}}>
                           {line.spans[0].text}
                         </li>
                       </ul>

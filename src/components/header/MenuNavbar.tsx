@@ -7,13 +7,13 @@ const MenuNavbar = ({layoutDatas}: {layoutDatas: LayoutNavigation[]}) => {
     
   return (
     <div className="menuNav h-[72px] flex items-center justify-around bg-orange-50">
-      <div className="flex max-w-[85%] overflow-hidden">
+      <div className="flex gap-8 max-w-[85%] max-h-[72px] flex-wrap overflow-y-hidden">
         {
           layoutDatas.map(labelName => {
             return(
               <button 
                 key={labelName.layoutId} 
-                className="h-6 flex items-center whitespace-nowrap mx-3 text-sm"
+                className="h-[72px] whitespace-nowrap text-sm text-[#00b8a9]"
               >
                 {labelName.label}
               </button>
@@ -21,7 +21,10 @@ const MenuNavbar = ({layoutDatas}: {layoutDatas: LayoutNavigation[]}) => {
           })    
         }
       </div>
-      <button>Plus</button>
+      <button className="flex items-center gap-2">
+        <span>Plus</span>
+        <i className="icon-chevron-down"></i>
+      </button>
     </div>
   )
 }

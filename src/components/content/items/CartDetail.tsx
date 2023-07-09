@@ -8,29 +8,37 @@ const CartDetail = ({cart, addCart, deleteCart, removeCart }: CustomHooksProps) 
 
   return (
     <div className="bg-[#fff]">
-     <div className="flex flex-col overflow-y-auto max-h-[425px] min-h-[50px]">
+     <div className="flex flex-col overflow-y-auto max-h-[350px] min-h-[50px] gap-4">
         {cart.map(item => {
           // conversion from string € to number
           const price = Number(item.price.replace(/[^0-9,-]+/g,"").replace(",","."));
           totalSum = totalSum + item.quantity * price;
           
           return (
-            <div key={item.id} className="cart flex gap-2 justify-between">
-              <div className="whitespace-nowrap">
+            <div key={item.id} className="cart flex gap-4 justify-between">
+              <div className="flex items-center whitespace-nowrap">
                 {/* decremente quantity */}
-                <button onClick={()=> {removeCart(item)}}>-</button>
+                <button onClick={()=> {removeCart(item)}}>
+                  <i className="icon-minus text-2xl"></i>
+                </button>
                 <span>{item.quantity}</span>
                 {/* add quantity */}
-                <button onClick={()=>{addCart(item)}}>+</button>    
+                <button onClick={()=>{addCart(item)}}>
+                 <i className="icon-plus text-2xl"></i>
+                </button>    
               </div>
-              <div>
+              <div className="cart-name">
                 <span>{item.name}</span>
               </div>
-              <div>
-                <span>{item.price}</span>
-              </div>  
-                {/* delete items in one click */}
-              <button onClick={()=> {deleteCart(item)}}>X</button>
+              <div className="flex items-center">
+                <div>
+                  <span>{item.price}</span>
+                </div>  
+                  {/* delete items in one click */}
+                <button onClick={()=> {deleteCart(item)}}>
+                  <i className="icon-cross text-2xl"></i>
+                </button>
+              </div>
             </div>
           )
         })}

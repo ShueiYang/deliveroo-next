@@ -1,7 +1,6 @@
 import { RambuteauRawData } from "../content/MainContent"
 import HeadNavbar from "./HeadNavbar"
 import HeroSection from "./HeroSection"
-import MenuNavbar from "./MenuNavbar"
 
 
 const Header = ({datas}: RambuteauRawData ) => {
