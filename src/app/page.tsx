@@ -32,6 +32,6 @@ export default async function Home() {
       <Header datas={pageData} />
       <MainContent datas={pageData}/>
       <Footer />
-   </>
+    </>
   )
 }

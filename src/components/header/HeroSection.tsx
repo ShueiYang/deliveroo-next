@@ -7,12 +7,13 @@ const HeroSection = ({datas}: RambuteauRawData) => {
 
   const headerSpan1 = datas.header.headerTags.lines[0].spans
   const headerSpan2 = datas.header.headerTags.lines[1].spans
+  const headerInfo = datas.header.headerInfoRows
 
   return (
-    <section className="relative flex flex-col md:flex-row gap-6 py-8 ">
+    <section className="relative flex flex-col md:flex-row gap-6 py-8">
       <div className="relative basis-4/12">
         <Image 
-          className="object-cover w-full h-full max-h-64"
+          className="object-cover w-full h-full max-h-[340px]"
           src={datas.meta.metatags.image}
           width={450}
           height={250} 
@@ -34,8 +35,11 @@ const HeroSection = ({datas}: RambuteauRawData) => {
             {
               headerSpan1.map(span => {
                 return(
-                  <span key={span.key} className="font-medium">
-                      &nbsp;{span.text}
+                  <span 
+                    key={span.key} 
+                    className={`text-[${span.color?.hex}] font-medium`}
+                  >
+                    &nbsp;{span.text}
                   </span>
                 )
               })
@@ -44,11 +48,11 @@ const HeroSection = ({datas}: RambuteauRawData) => {
 
           <div className="flex flex-wrap gap-0.5 items-center pt-2">
             {
-              headerSpan2.map((span ,i) => {
+              headerSpan2.map(span => {
                 return(
-                  <Fragment key={i}>
+                  <Fragment key={span.key}>
                      { span.icon && <i className={`icon-${span.icon.name}`}></i> }                  
-                    <div key={i} className="font-medium whitespace-nowrap">      
+                    <div key={span.key} className={`text-[${span.color?.hex}] font-medium whitespace-nowrap`}>      
                       { span.typeName === "UISpanSpacer" && ""}
                       { span.typeName === "UISpanText" && span.text}
                     </div>
@@ -57,15 +61,25 @@ const HeroSection = ({datas}: RambuteauRawData) => {
               })
             }
           </div>
-
-          <div className="pt-4 flex items-center">
-            <i className="icon-INFO_CIRCLE text-2xl"></i>
-            <div className="flex flex-col mx-4">
-              <span>Sandwich</span>
-              <span>Allergene</span>
-            </div>
-            <i className="icon-chevron-right"></i>     
-          </div>      
+          { headerInfo.map(info => {
+            return (
+              <div key={info.key} className="pt-4 flex items-center">
+                <i className={`icon-${info.image.name} text-2xl text-[${info.image.color.hex}]`}></i>
+                <div className="flex flex-col mx-4">
+                  { info.lines.map(line => {
+                    return (
+                      <ul key={line.key}>
+                        <li className={`text-[${line.spans[0].color.hex}]`}>
+                          {line.spans[0].text}
+                        </li>
+                      </ul>
+                    )
+                  })}
+                </div>
+                <i className="icon-chevron-right"></i>     
+              </div>
+            )
+          })}         
         </div>
         <div className="flex flex-col items-start pt-3">     
           <div className="flex mb-2">
@@ -77,8 +91,8 @@ const HeroSection = ({datas}: RambuteauRawData) => {
               height={25}
             />
             {/* <img className="w-6 mr-4" src="/icons/bike.svg" alt="bike" /> */}
-            <span>Livrée dans 15 - 25 min</span> 
-            <span>Modifie</span> 
+            <span>Livrée dans 15 - 25 min</span>
+            <span className="mx-2 text-teal-500">Modifie</span> 
           </div>  
           <div className="btn-1 xl:mt-4">
             <Button />

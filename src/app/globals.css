@@ -4,11 +4,11 @@
 
 @layer components {
   .container {
-    width: 100%;
     max-width: 1920px;
+    margin: 0px auto;
   }
   .menuNav {
-    border-top: 1px #e5e7eb  solid;
+   border-top: 1px #e5e7eb  solid;
    border-bottom: 1px #e5e7eb  solid;
   }
   .btn-0 {
@@ -63,9 +63,8 @@ html,
 body {
   max-width: 100vw;
   position: relative;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   height: 100%;
-  font-family: var(--theme-fontPlex);
 }
 
 h1 {

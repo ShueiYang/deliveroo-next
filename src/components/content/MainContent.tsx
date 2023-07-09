@@ -5,6 +5,7 @@ import MenuLists from "./MenuLists";
 import Cart from "./Cart";
 import useCart from "../../hooks/useCart";
 import { DeliverooData } from "../../../data.types";
+import MenuNavbar from "../header/MenuNavbar";
 
 export interface RambuteauRawData {
   datas: DeliverooData
@@ -26,17 +27,22 @@ const MainContent = ({datas}: RambuteauRawData) => {
   
 
   return (
-    <div className="container flex flex-col md:flex-row bg-slate-100 pt-8">
-      <MenuLists 
-        datas={datas}
-        addCart={addCart}
-      />  
-      <Cart 
-        cart={cart}
-        addCart={addCart}
-        removeCart={removeCart}
-        deleteCart={deleteCart}
-      />
+    <div className="w-full flex flex-col">
+      <div className="sticky top-[72px] z-10">
+        <MenuNavbar  layoutDatas={datas.layoutNavigation}/>
+      </div>
+      <div className="container flex flex-col md:flex-row bg-slate-100 pt-8">
+        <MenuLists 
+          datas={datas}
+          addCart={addCart}
+        />  
+        <Cart 
+          cart={cart}
+          addCart={addCart}
+          removeCart={removeCart}
+          deleteCart={deleteCart}
+        />
+      </div>
     </div>
   )
 }
