@@ -5,14 +5,17 @@ const CartDetail = ({cart, addCart, deleteCart, removeCart }: CustomHooksProps) 
 
   const deliveryFee = 2.5;
   let totalSum = 0;
+  let totalQty = 0;
 
   return (
     <div className="bg-[#fff]">
-     <div className="flex flex-col overflow-y-auto max-h-[350px] min-h-[50px] gap-4">
+     <div className="flex flex-col overflow-y-auto max-h-[350px] min-h-[50px] gap-4 mt-4">
         {cart.map(item => {
           // conversion from string € to number
           const price = Number(item.price.replace(/[^0-9,-]+/g,"").replace(",","."));
+          const itemTotal = item.quantity * price
           totalSum = totalSum + item.quantity * price;
+          totalQty = totalQty + item.quantity
           
           return (
             <div key={item.id} className="cart flex gap-4 justify-between">
@@ -32,7 +35,7 @@ const CartDetail = ({cart, addCart, deleteCart, removeCart }: CustomHooksProps) 
               </div>
               <div className="flex items-center">
                 <div>
-                  <span>{item.price}</span>
+                  <span>{itemTotal.toFixed(2)}</span>
                 </div>  
                   {/* delete items in one click */}
                 <button onClick={()=> {deleteCart(item)}}>

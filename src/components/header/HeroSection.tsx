@@ -53,7 +53,8 @@ const HeroSection = ({datas}: RambuteauRawData) => {
                 return(
                   <Fragment key={span.key}>
                      { span.icon && <i className={`icon-${span.icon.name}`}></i> }                  
-                    <div key={span.key} 
+                    <div 
+                      key={span.key} 
                       className="font-medium whitespace-nowrap"
                       style={{color: `${span.color?.hex}`}}
                     >      

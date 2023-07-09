@@ -13,7 +13,7 @@ export interface CustomHooksProps {
 const Cart = ({cart, addCart, deleteCart, removeCart }: CustomHooksProps) => {
 
   const [ open, setOpen ] = useState(false);
-  
+
   return (
    <>
     { cart.length === 0 ?
