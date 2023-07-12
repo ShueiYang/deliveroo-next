@@ -1,11 +1,15 @@
 "use client"
 
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import MenuLists from "./MenuLists";
 import Cart from "./Cart";
 import useCart from "../../hooks/useCart";
 import { DeliverooData } from "../../../data.types";
-import MenuNavbar from "../header/MenuNavbar";
+
+const MenuNavbar = dynamic(()=> import("@/components/header/MenuNavbar"), {
+  ssr: false
+})
 
 export interface RambuteauRawData {
   datas: DeliverooData

@@ -5,7 +5,7 @@ const CartDetail = ({cart, addCart, deleteCart, removeCart }: CustomHooksProps) 
 
   const deliveryFee = 2.5;
   let totalSum = 0;
-  let totalQty = 0;
+  // let totalQty = 0;
 
   return (
     <div className="bg-[#fff]">
@@ -15,7 +15,7 @@ const CartDetail = ({cart, addCart, deleteCart, removeCart }: CustomHooksProps) 
           const price = Number(item.price.replace(/[^0-9,-]+/g,"").replace(",","."));
           const itemTotal = item.quantity * price
           totalSum = totalSum + item.quantity * price;
-          totalQty = totalQty + item.quantity
+          // totalQty = totalQty + item.quantity
           
           return (
             <div key={item.id} className="cart flex gap-4 justify-between">
