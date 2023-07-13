@@ -12,11 +12,6 @@ const Logo = () => {
         height={100} 
         alt="deliveroo logo" 
       />
-      {/* <img 
-        className="w-32"
-        src="/icons/logo-teal.svg" 
-        alt="deliveroo logo" 
-      /> */}
     </div>
   )
 }

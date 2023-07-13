@@ -20,9 +20,6 @@ const HeroSection = ({datas}: RambuteauRawData) => {
           alt="Subway" 
           priority
         />
-        {/* <img className="object-cover w-full h-full max-h-64"
-          src={datas.meta.metatags.image} alt="Subway" 
-        /> */}
         <div className="btn-0">
           <Button />
         </div>
@@ -97,7 +94,6 @@ const HeroSection = ({datas}: RambuteauRawData) => {
               width={25}
               height={25}
             />
-            {/* <img className="w-6 mr-4" src="/icons/bike.svg" alt="bike" /> */}
             <span>Livrée dans 15 - 25 min</span>
             <span className="mx-2 text-teal-500">Modifie</span> 
           </div>  

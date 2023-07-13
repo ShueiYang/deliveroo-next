@@ -48,11 +48,6 @@ const MenuCard = ({ categoryId, name, items, addCart }: MenuCardProps) => {
                     height={100}
                     alt={item.image ? item.image.altText : "placeholder"} 
                   />
-                  {/* <img 
-                    className="max-w-full max-h-full min-w-[90px] aspect-square border-2 border-gray-100"
-                    src={item.image ? item.image.url : "/icons/placeholder.svg"}
-                    alt={item.image ? item.image.altText : "placeholder"} 
-                  /> */}
                 </div>
               </div>
             )     
