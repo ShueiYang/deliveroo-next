@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LayoutNavigation } from "../../../data.types";
 import { howManyItemsInMenuArray } from "@/utils/navUtility";
 
@@ -35,7 +35,6 @@ const MenuNavbar = ({layoutDatas}: {layoutDatas: LayoutNavigation[]}) => {
         const navItemCopy = fullNavArray.current;
         const menuArray = arrayAmount === 0 ? 1 : arrayAmount;
         const priorityItems = navItemCopy.slice(0, menuArray);
-        console.log("arrayaMount", arrayAmount);
  
         setPriorityItems(priorityItems);
         setMoreItems(priorityItems.length !== navItemCopy.length ? 
@@ -66,15 +65,17 @@ const MenuNavbar = ({layoutDatas}: {layoutDatas: LayoutNavigation[]}) => {
 
 
   return (
-    <div ref={navigationOuterRef} className="menuNav h-[72px] flex items-center justify-around bg-orange-50 px-4">
-      <ul ref={navigationRef} className="flex gap-8 max-w-[85%] max-h-[72px]">
-        {priorityItems.map(labelName => {
+    <div ref={navigationOuterRef} className="menuNav h-[72px] flex items-center justify-between bg-orange-50 px-8">
+      <ul ref={navigationRef} className="flex gap-6 max-w-[85%] max-h-[72px]">
+        {priorityItems.map((labelName, index) => {
           return(
             <li 
               key={labelName.layoutId} 
-              className="flex items-center h-[72px] whitespace-nowrap text-sm text-[#00b8a9] cursor-pointer"
+              className="flex items-center justify-center min-w-[160px] h-8 whitespace-nowrap text-sm text-[#00b8a9] cursor-pointer"
             >
-              {labelName.label}
+              <span className={`py-1 px-4 ${index === 0 ? "bg-[#17ccbd] text-[#fff] font-bold rounded-2xl" : ""}`}>
+                {labelName.label}
+              </span>
             </li>
           )
         })}  
@@ -89,10 +90,13 @@ const MenuNavbar = ({layoutDatas}: {layoutDatas: LayoutNavigation[]}) => {
             <i className="icon-chevron-down"></i>
           </button>
           { open && 
-            <ul ref={moreNavRef} className="absolute top-10 -left-10">
+            <ul ref={moreNavRef} className="absolute top-10 right-0 bg-orange-50">
               {moreItems.map(labelName => {
                 return (
-                  <li key={labelName.layoutId} className="w-36 h-9">
+                  <li 
+                    key={labelName.layoutId} 
+                    className="whitespace-nowrap flex items-center w-60 h-12 py-2 px-4 border-b-2 cursor-pointer hover:bg-orange-100"
+                  >
                     {labelName.label}
                   </li>
                 )

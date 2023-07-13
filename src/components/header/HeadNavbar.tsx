@@ -11,6 +11,7 @@ const HeadNavbar = () => {
       <div className="relative max-w-[500px] grow hidden lg:block ml-2">
         <input 
           type="text"
+          name="search"
           className="w-full px-7 py-1.5 outline-none focus:ring-2 focus:ring-zinc-500 rounded-sm"
           placeholder="Chercher Subway - Rambuteau"    
         />
