@@ -22,11 +22,9 @@ async function getDeliverooPageData(): Promise<DeliverooData> {
 
 
 export default async function Home() {
-
+  // data fetching
   const pageData: DeliverooData = await getDeliverooPageData();
 
-  // console.log("DATA HERE", pageData);
-  
   return (
     <>
       <Header datas={pageData} />

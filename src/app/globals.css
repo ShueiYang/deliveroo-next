@@ -107,7 +107,7 @@ a:hover {
 nav {
   border-bottom: 1px #e5e7eb  solid;
 }
-nav a {
+nav button {
   border: 1px #e5e7eb solid;
   padding: 8px 16px;
 }
